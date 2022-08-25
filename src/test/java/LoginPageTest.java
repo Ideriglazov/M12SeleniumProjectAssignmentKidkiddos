@@ -1,3 +1,4 @@
+import Pages.BasePage;
 import Pages.LoginPage;
 import Pages.HomePage;
 import Utilities.UseCaseBase;
@@ -11,10 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginPageTest extends UseCaseBase {
     @Test
-    public void emptyFieldsLogin() {
+    public void emptyFieldsLogin() throws InterruptedException {
+
         LoginPage loginPage = new LoginPage();
+        loginPage.navigateToLoginPage();
         loginPage.emptyFieldsLogin();
-        boolean isLoaded = loginPage.isPageTitleVisible();
+        boolean isLoaded = loginPage.isIncorrectCredentialsVisible();
         assertTrue(isLoaded);
     }
 }

@@ -10,18 +10,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginPageTest extends UseCaseBase {
-    private static LoginPage loginPage;
-    public static final Logger logger = LogManager.getLogger(LoginPageTest.class);
-
-    @BeforeAll
-    public static void classSetup() {
-        loginPage = new LoginPage();
-    }
-
-
     @Test
     public void emptyFieldsLogin() {
-        LoginPage loginPage = loginPage.emptyFieldsLogin();
+        LoginPage loginPage = new LoginPage();
+        loginPage.emptyFieldsLogin();
         boolean isLoaded = loginPage.isPageTitleVisible();
         assertTrue(isLoaded);
     }

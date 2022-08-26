@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UseCaseBase {
 
-    private static WebDriver webDriver;
+    protected static WebDriver webDriver;
     private static BasePage page;
     public WebDriver driver;
     public WebDriverWait wait = new WebDriverWait(webDriver, 30);

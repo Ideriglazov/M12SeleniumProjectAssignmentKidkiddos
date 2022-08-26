@@ -39,4 +39,16 @@ public class LoginPage extends BasePage{
         clickElementByXpath(SIGN_IN_BUTTON);
         return new LoginPage();
     }
+    public LoginPage incorrectCredentialsLogin() throws InterruptedException {
+        String incorrectEmail = "qwert";
+        String incorrectPassword = "asdf";
+        clickElementByXpath(EMAIL_FIELD);
+        Thread.sleep(1000);
+        sendTextToElementByXpath(EMAIL_FIELD,incorrectEmail);
+        clickElementByXpath(PASSWORD_FIELD);
+        Thread.sleep(1000);
+        sendTextToElementByXpath(PASSWORD_FIELD,incorrectPassword);
+        clickElementByXpath(SIGN_IN_BUTTON);
+        return new LoginPage();
+    }
 }

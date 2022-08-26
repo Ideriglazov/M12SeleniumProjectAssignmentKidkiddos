@@ -1,3 +1,4 @@
+import Consts.Consts;
 import Pages.LoginPage;
 import Pages.HomePage;
 import Utilities.UseCaseBase;
@@ -42,4 +43,18 @@ public class LoginNegativeTest extends UseCaseBase {
             assertTrue(isLoadedCaptcha);
         }
     }
+
+    @Test
+    @Order(3)
+    public void incorrectCredentialsLogin() throws InterruptedException {
+        LoginPage loginPage = new LoginPage();
+        if (webDriver.getCurrentUrl() != Consts.LOGIN_URL) {
+            webDriver.get(Consts.LOGIN_URL);
+        }
+        loginPage.incorrectCredentialsLogin();
+        String actualURL = webDriver.getCurrentUrl();
+        assertEquals(actualURL, Consts.LOGIN_URL);
+    }
+
+
 }

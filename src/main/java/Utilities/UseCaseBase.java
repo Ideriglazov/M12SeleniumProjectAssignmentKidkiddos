@@ -4,12 +4,14 @@ import Pages.BasePage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UseCaseBase {
 
     private static WebDriver webDriver;
     private static BasePage page;
-
+    public WebDriver driver;
+    public WebDriverWait wait = new WebDriverWait(webDriver, 30);
     @BeforeAll
     public static void setupMain() {
         page = new BasePage();

@@ -31,5 +31,8 @@ public class BookSelectionTest extends UseCaseBase {
         assertEquals(actualURL, Consts.BOOK_DETAILS_PAGE_URL);
         productPage.changeFormat();
         productPage.changeQuantity();
+        productPage.pressAddToCart();
+        actualURL = webDriver.getCurrentUrl();
+        assertEquals(actualURL, Consts.CART_URL);
     }
 }

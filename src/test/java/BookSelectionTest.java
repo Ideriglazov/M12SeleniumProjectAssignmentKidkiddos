@@ -1,4 +1,5 @@
 import Consts.Consts;
+import Pages.BooksResultsPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utilities.UseCaseBase;
@@ -14,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookSelectionTest extends UseCaseBase {
     HomePage homePage = new HomePage();
+    BooksResultsPage booksResultsPage = new BooksResultsPage();
     @Test
     @Order(1)
     public void bookSelection() {
@@ -22,5 +24,8 @@ public class BookSelectionTest extends UseCaseBase {
         homePage.pressEnglishOnlyIcon();
         String actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.ENGLISH_ONLY_URL);
+        booksResultsPage.chooseBook();
+        actualURL = webDriver.getCurrentUrl();
+        assertEquals(actualURL, Consts.BOOK_DETAILS_PAGE_URL);
     }
 }

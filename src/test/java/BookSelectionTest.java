@@ -2,6 +2,7 @@ import Consts.Consts;
 import Pages.BooksResultsPage;
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.ProductPage;
 import Utilities.UseCaseBase;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -16,9 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class BookSelectionTest extends UseCaseBase {
     HomePage homePage = new HomePage();
     BooksResultsPage booksResultsPage = new BooksResultsPage();
+    ProductPage productPage = new ProductPage();
     @Test
     @Order(1)
-    public void bookSelection() {
+    public void bookSelection() throws InterruptedException {
         homePage.navigateToHomePage();
         homePage.pressBooksByLanguageIcon();
         homePage.pressEnglishOnlyIcon();
@@ -27,5 +29,6 @@ public class BookSelectionTest extends UseCaseBase {
         booksResultsPage.chooseBook();
         actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.BOOK_DETAILS_PAGE_URL);
+        productPage.changeFormat();
     }
 }

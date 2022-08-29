@@ -19,16 +19,14 @@ public class HomePage extends BasePage{
         clickElementByXpath(LOGIN_ICON);
         return new LoginPage();//Что значит такой синтаксис?
     }
-    public HomePage pressBooksByLanguageIcon(){
+    public void pressBooksByLanguageIcon(){
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(BOOKS_BY_LANGUAGE_ICON)));
         clickElementByXpath(BOOKS_BY_LANGUAGE_ICON);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ENGLISH_ONLY_ICON)));
-        return new HomePage();//Что значит такой синтаксис?
     }
-    public HomePage pressEnglishOnlyIcon(){
+    public void pressEnglishOnlyIcon(){
         clickElementByXpath(ENGLISH_ONLY_ICON);
         wait.until(ExpectedConditions.urlToBe(Consts.ENGLISH_ONLY_URL));
-        return new HomePage();//Что значит такой синтаксис?
     }
     public boolean isPageLoaded() {
         if (webDriver.getCurrentUrl() == Consts.ENGLISH_ONLY_URL) {

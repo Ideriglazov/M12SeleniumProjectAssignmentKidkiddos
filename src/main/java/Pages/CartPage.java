@@ -11,17 +11,13 @@ public class CartPage extends BasePage{
     private static final String QUANTITY_FIELD = "//input[@class='cart__qty-input']";
     private static final String TOTAL = "//span[@class='cbb-price-symbol']//preceding-sibling::span[@class='cbb-price-digits']";
     private static final String UPDATE_BUTTON = "//input[@name='update'][@class='btn btn--secondary cart__update cart__update--large small--hide']";
-    public String oldQuantity = "";
-    public String oldPrice = "";
-    public CartPage changeQuantity(){
+
+    public void changeQuantity(String newQuantity){
         WebElement quantityElement = webDriver.findElement(By.xpath(QUANTITY_FIELD));
-        oldQuantity = getBooksQuantity();
-        oldPrice = getPrice();
         quantityElement.clear();
-        quantityElement.sendKeys("6");
+        quantityElement.sendKeys(newQuantity);
         WebElement updateElement = webDriver.findElement(By.xpath(UPDATE_BUTTON));
         updateElement.click();
-        return new CartPage();
     }
     public String getBooksQuantity() {
         WebElement quantityElement = webDriver.findElement(By.xpath(QUANTITY_FIELD));

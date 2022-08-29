@@ -32,10 +32,16 @@ public class BookSelectionTest extends UseCaseBase {
         productPage.pressAddToCart();
         actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.CART_URL);
-        cartPage.changeQuantity();
-        System.out.println(cartPage.oldQuantity);
-        System.out.println(cartPage.oldPrice);//for some reason old price equals null. I assume the value from the price field was not received
-        assertNotEquals(cartPage.oldQuantity,cartPage.getBooksQuantity());
-        //assertNotEquals(cartPage.oldPrice,cartPage.getPrice());//does not work correctly
+        String oldQuantity = cartPage.getBooksQuantity();
+        String oldPrice = cartPage.getPrice();
+        cartPage.changeQuantity("6");
+        String newQuantity = cartPage.getBooksQuantity();
+        String newPrice = cartPage.getPrice();
+        System.out.println(oldQuantity);
+        System.out.println(oldPrice);
+        System.out.println(newQuantity);
+        System.out.println(newPrice);
+        assertNotEquals(oldQuantity,newQuantity);
+        //assertNotEquals(oldPrice,newPrice);
     }
 }

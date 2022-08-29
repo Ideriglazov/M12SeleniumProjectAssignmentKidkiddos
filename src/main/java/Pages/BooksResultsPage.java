@@ -11,7 +11,7 @@ public class BooksResultsPage extends BasePage {
     private static final String CLOSE_ICON = "//*[@class='_close-icon']";
     private static final String BOOK_ICON = "//*[@href='/collections/english-only/products/i-love-to-eat-fruits-and-vegetables-childrens-book-english-only']";
     Actions actions = new Actions(webDriver);
-    public BooksResultsPage chooseBook() throws InterruptedException {
+    public void chooseBook() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(BOOK_ICON)));
         WebElement bookElement = webDriver.findElement(By.xpath(BOOK_ICON));
         actions.moveToElement(bookElement).build().perform();
@@ -22,6 +22,5 @@ public class BooksResultsPage extends BasePage {
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(CLOSE_ICON)));
         bookElement.click();
-        return new BooksResultsPage();
     }
 }

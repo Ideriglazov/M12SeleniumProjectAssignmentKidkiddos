@@ -46,8 +46,7 @@ public class BasePage {
         element = webDriver.findElement(By.xpath(xpath));
         return element;
     }
-    //Зачем создавать отдельный метод(getCurrentPageURL) для получения текущего URL?
-    //если можно использовать встроенный метод селениума (getCurrentUrl)?
+
     protected String getCurrentPageURL() {
         return webDriver.getCurrentUrl();
     }

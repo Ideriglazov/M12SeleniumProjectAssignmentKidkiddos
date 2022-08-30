@@ -1,10 +1,13 @@
 package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import java.util.List;
 
 public class CartPage extends BasePage{
     private static final String QUANTITY_FIELD = "//input[@class='cart__qty-input']";
-    private static final String TOTAL = "//span[@class='cbb-price-symbol']//preceding-sibling::span[@class='cbb-price-digits']";
+    @FindBy(css = ".cbb-price-digits")
+    public List<WebElement> TOTAL;
     private static final String UPDATE_BUTTON = "//input[@name='update'][@class='btn btn--secondary cart__update cart__update--large small--hide']";
 
     public void changeQuantity(String newQuantity){
@@ -18,8 +21,7 @@ public class CartPage extends BasePage{
         WebElement quantityElement = webDriver.findElement(By.xpath(QUANTITY_FIELD));
         return quantityElement.getAttribute("value");
     }
-    public String getPrice() {
-        WebElement totalElement = webDriver.findElement(By.xpath(TOTAL));
-        return totalElement.getAttribute("value");
+    public String getPrice(int key) {
+        return TOTAL.get(key).getText();
     }
 }

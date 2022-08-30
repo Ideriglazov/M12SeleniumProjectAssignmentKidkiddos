@@ -30,15 +30,15 @@ public class BookSelectionTest extends UseCaseBase {
         actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.CART_URL);
         String oldQuantity = cartPage.getBooksQuantity();
-        String oldPrice = cartPage.getPrice();//Cannot get the value of price. Probably because of the wrong xpath
+        String oldPrice = cartPage.getPrice(1);//Cannot get the value of price. Probably because of the wrong xpath
         cartPage.changeQuantity("6");
         String newQuantity = cartPage.getBooksQuantity();
-        String newPrice = cartPage.getPrice();
+        String newPrice = cartPage.getPrice(1);
         System.out.println(oldQuantity);
         System.out.println(oldPrice);
         System.out.println(newQuantity);
         System.out.println(newPrice);
         assertNotEquals(oldQuantity,newQuantity);
-        //assertNotEquals(oldPrice,newPrice);
+        assertNotEquals(oldPrice,newPrice);
     }
 }

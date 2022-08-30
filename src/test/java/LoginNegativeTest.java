@@ -2,21 +2,13 @@ import Consts.Consts;
 import Pages.LoginPage;
 import Pages.HomePage;
 import Utilities.UseCaseBase;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginNegativeTest extends UseCaseBase {
     HomePage homePage = new HomePage();
-    UseCaseBase useCaseBase = new UseCaseBase();
-
-
     @Test
     @Order(1)
     public void openLoginPage() {
@@ -55,6 +47,4 @@ public class LoginNegativeTest extends UseCaseBase {
         String actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.LOGIN_URL);
     }
-
-
 }

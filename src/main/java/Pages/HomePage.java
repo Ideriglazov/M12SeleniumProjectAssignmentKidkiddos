@@ -17,7 +17,7 @@ public class HomePage extends BasePage{
 
     public LoginPage pressLoginIcon(){
         clickElementByXpath(LOGIN_ICON);
-        return new LoginPage();//Что значит такой синтаксис?
+        return new LoginPage();
     }
     public void pressBooksByLanguageIcon(){
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(BOOKS_BY_LANGUAGE_ICON)));

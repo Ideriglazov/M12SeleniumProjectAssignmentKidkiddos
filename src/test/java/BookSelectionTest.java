@@ -5,9 +5,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -24,7 +21,7 @@ public class BookSelectionTest extends UseCaseBase {
         homePage.pressEnglishOnlyIcon();
         String actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.ENGLISH_ONLY_URL);
-        booksResultsPage.chooseBook();//Book results page is not visible in the browser during the test execution after I added the last assertion in this test
+        booksResultsPage.chooseBook();
         actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.BOOK_DETAILS_PAGE_URL);
         productPage.changeFormat();
@@ -33,7 +30,7 @@ public class BookSelectionTest extends UseCaseBase {
         actualURL = webDriver.getCurrentUrl();
         assertEquals(actualURL, Consts.CART_URL);
         String oldQuantity = cartPage.getBooksQuantity();
-        String oldPrice = cartPage.getPrice();
+        String oldPrice = cartPage.getPrice();//Cannot get the value of price. Probably because of the wrong xpath
         cartPage.changeQuantity("6");
         String newQuantity = cartPage.getBooksQuantity();
         String newPrice = cartPage.getPrice();

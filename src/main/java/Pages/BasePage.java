@@ -1,12 +1,10 @@
 package Pages;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -20,7 +18,6 @@ public class BasePage {
         this.webDriver = webDriver;
         wait = new WebDriverWait(webDriver, 5);
     }
-
 
     protected void clickElementByXpath(String xpath) {
         logger.info("Clicking element with xpath: " + xpath);
@@ -65,5 +62,4 @@ public class BasePage {
         }
 
     }
-
 }

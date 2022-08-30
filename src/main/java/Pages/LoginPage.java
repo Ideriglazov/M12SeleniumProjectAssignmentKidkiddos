@@ -1,5 +1,4 @@
 package Pages;
-
 import Consts.Consts;
 
 public class LoginPage extends BasePage{
@@ -28,7 +27,7 @@ public class LoginPage extends BasePage{
         return elementExists(CAPTCHA);
     }
 
-    public LoginPage emptyFieldsLogin() throws InterruptedException {
+    public void emptyFieldsLogin() throws InterruptedException {
         String emptyString = "";
         clickElementByXpath(EMAIL_FIELD);
         Thread.sleep(1000);
@@ -37,9 +36,8 @@ public class LoginPage extends BasePage{
         Thread.sleep(1000);
         sendTextToElementByXpath(PASSWORD_FIELD,emptyString);
         clickElementByXpath(SIGN_IN_BUTTON);
-        return new LoginPage();
     }
-    public LoginPage incorrectCredentialsLogin() throws InterruptedException {
+    public void incorrectCredentialsLogin() throws InterruptedException {
         String incorrectEmail = "qwert";
         String incorrectPassword = "asdf";
         clickElementByXpath(EMAIL_FIELD);
@@ -49,6 +47,5 @@ public class LoginPage extends BasePage{
         Thread.sleep(1000);
         sendTextToElementByXpath(PASSWORD_FIELD,incorrectPassword);
         clickElementByXpath(SIGN_IN_BUTTON);
-        return new LoginPage();
     }
 }
